@@ -8,7 +8,7 @@ This image uses [libvips](https://jcupitt.github.io/libvips/) to convert
 ## Build
 
 ```bash
-docker build --tag=svs-tiler context
+docker build --tag=svs-tiler context .
 ```
 
 ## Run
@@ -30,11 +30,7 @@ And two mounts should be provided:
 - Replace `YOUR_FILE.svs` with absolute path of the SVS to tile.
 - Replace `YOUR_OUTPUT` with absolute path of directory where the tiles should go.
 
-## Test and push to DockerHub
-
-```bash
-./test.sh
-```
+## Push to DockerHub
 
 If tests pass, we're just pushing to DockerHub by hand:
 ```bash
@@ -44,7 +40,7 @@ git pull
 
 # First, set the new VERSION:
 VERSION=v0.0.????
-docker tag ome-tiff-tiler thomaslchan/svs-tiler:$VERSION
+docker tag svs-tiler thomaslchan/svs-tiler:$VERSION
 docker push thomaslchan/svs-tiler:$VERSION
 
 # And also make a git tag:
